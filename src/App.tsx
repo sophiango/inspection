@@ -1,6 +1,9 @@
 import {useEffect, useRef, useState} from 'react';
 import './App.css';
-import {videoAPI} from './client';
+import {videoAPI} from './client.tsx';
+import VideoPlayer from './VideoPlayer';
+import WaveformVisualizer from './WaveformVisualizer';
+import QCControls from './QCControls';
 
 interface VideoProps {
     id: string;
@@ -180,6 +183,7 @@ function App() {
     }
 
     return (
+      <div className="flex h-screen">
         <aside
             className="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
             {/* <a href="#">
@@ -208,6 +212,43 @@ function App() {
               </a>
             </div>
         </aside>
+        <div className="flex-1 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+          <main className="p-6 main-content">
+          <div className="video-section">
+            <VideoPlayer
+                videoRef={videoRef}
+                videoUrl={videoUrl}
+                isPlaying={isPlaying}
+                currentTime={currentTime}
+                duration={duration}
+                volume={volume}
+                onPlay={togglePlay}
+                onTimeUpdate={handleTimeUpdate}
+                onSeek={handleSeek}
+                onVolumeChange={handleVolumeChange}
+                onLoadedMetadata={handleLoadedMetadata}
+            />
+        </div>
+
+        <div className="waveform-section">
+            <WaveformVisualizer
+                audioData={audioData}
+                currentTime={currentTime}
+                duration={duration}
+                onSeek={handleSeek}
+            />
+        </div>
+
+        <div className="qc-section">
+            <QCControls
+                currentTime={currentTime}
+                onAddIssue={addIssue}
+                issues={issues}
+            />
+        </div>
+          </main>
+        </div>
+      </div>
     )
 }
 

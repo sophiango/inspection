@@ -1,42 +1,201 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.video-section {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.video-player {
+  width: 100%;
+}
+
+.video-container {
+  width: 100%;
+  position: relative;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+
+.video-element {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+
+.no-video {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark-gray);
+  color: white;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.video-controls {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--dark-gray);
+  color: white;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.control-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.time-display {
+  margin: 0 15px;
+  font-family: monospace;
+}
+
+.seek-control {
+  flex-grow: 1;
+}
+
+.seek-slider {
+  width: 100%;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.volume-icon {
+  margin-right: 5px;
+}
+
+.volume-slider {
+  width: 80px;
+}
+
+.waveform-section {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.waveform-container h3 {
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+}
+
+.waveform-canvas {
+  width: 100%;
+  height: 100px;
+  background-color: #f9f9f9;
+  border: 1px solid var(--light-gray);
+  cursor: pointer;
+}
+
+.qc-section {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.qc-controls h3 {
+  margin-bottom: 15px;
+  color: var(--secondary-color);
+}
+
+.preset-issues {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.preset-issues button {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.preset-issues button:hover {
+  background-color: #1976D2;
+}
+
+.custom-issue-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.custom-issue-input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+}
+
+.add-issue-btn {
+  background-color: var(--danger-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.add-issue-btn:hover {
+  background-color: #d32f2f;
+}
+
+.issues-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.issues-list h4 {
+  margin-bottom: 10px;
+}
+
+.issues-list ul {
+  list-style-type: none;
+}
+
+.issues-list li {
+  padding: 8px;
+  margin-bottom: 5px;
+  background-color: #ffecb3;
+  border-left: 3px solid #ffc107;
+  border-radius: 2px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .video-controls {
+      flex-direction: column;
+      gap: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .time-display, .seek-control, .volume-control {
+      width: 100%;
+      margin: 5px 0;
+  }
+
+  .preset-issues {
+      flex-direction: column;
   }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
