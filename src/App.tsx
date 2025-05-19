@@ -4,6 +4,7 @@ import {videoAPI} from './client.tsx';
 import VideoPlayer from './VideoPlayer';
 import WaveformVisualizer from './WaveformVisualizer';
 import QCControls from './QCControls';
+import logo from './assets/INSPECTRON.jpg';
 
 interface VideoProps {
     id: string;
@@ -186,9 +187,9 @@ function App() {
       <div className="flex h-screen">
         <aside
             className="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
-            {/* <a href="#">
-          <img className="w-auto h-6 sm:h-7" src="https://merakiui.com/images/logo.svg" alt="">
-      </a> */}
+            <div className="size-20 self-center" >
+            <img src={logo} alt="inspectron logo black background white text"/>
+            </div>
 
             <div className="flex flex-col justify-between flex-1 mt-6">
               <nav>
