@@ -1,5 +1,5 @@
 // src/components/VideoPlayer.tsx
-import {RefObject} from 'react';
+import { type RefObject } from 'react';
 
 interface VideoPlayerProps {
     videoRef: RefObject<HTMLVideoElement | null>;
